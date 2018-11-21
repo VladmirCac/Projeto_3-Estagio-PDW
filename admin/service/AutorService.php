@@ -98,7 +98,7 @@
 
 		$autor = $_GET['autor'];
 
-		/* Aqui deverá ser listado todos os obetos da tabela Autor que tenham o nome $autor, alimentando os dados da tabela.*/
+		/* Aqui deverá ser listado todos os objetos da tabela Autor que tenham o nome $autor, alimentando os dados da tabela.*/
 
 		?>
 			<table class="table table-bordered table-striped">
@@ -122,7 +122,7 @@
 					</button>
 				</td>
 				<td>
-					<button nomeAutor=<?php echo "'var nome'"; ?> codigoAutor=<?php echo "'var codigo'"; ?>data-toggle="modal" data-target="#edicaoModal">
+					<button nomeAutor=<?php echo "'....'"; ?> codigoAutor=<?php echo "'var codigo'"; ?>data-toggle="modal" data-target="#edicaoModal">
 						<i class="fa fa-pencil-square-o text-primary" style="font-size: 150%;"></i>
 					</button>
 				</td>
@@ -143,15 +143,15 @@
 	// função responsável por listar todos os autores em formado de seleção por radio .
 	function listarSelectAutor(){
 
-		/* Aqui deverá ser listado todos os obetos da tabela Autor que tenham o nome $autor, alimentando os dados dos imputs.*/
+		/* Aqui deverá ser listado todos os obetos da tabela Autor que tenham o nome $autor, alimentando os dados dos imputs. No att value deve ser incluido o código do autor*/
 
 		$autor = $_GET['autor'];
 
 
 		if (true){
 
-			echo "<input type='radio' name='codigoRAutor' value='....' style='margin-left: 2%;'/> <b>".$autor."</b><br>";	
-
+			echo "<input type='radio' name='codigoRAutor' value='....' style='margin-left: 2%;'/> <b>".$autor."</b><br>";
+			
 		}else{
 
 			echo "<div class='alert alert-danger espacoForm'><strong>Autor não encontrado!</strong></div>";

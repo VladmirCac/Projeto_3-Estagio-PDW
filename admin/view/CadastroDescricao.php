@@ -29,7 +29,7 @@
 
 	<!-- MODAL editar categoria --> 
 
-	<div class="modal" id="editarCategoriaModal">
+	<div class="modal fade" id="editarCategoriaModal" data-backdrop="static">
 	  <div class="modal-dialog" >
 	    <div class="modal-content" >
 
@@ -83,7 +83,7 @@
 
 	<!-- MODAL adicionar descricao --> 
 
-	<div class="modal" id="addDescricaoModal">
+	<div class="modal fade" id="addDescricaoModal" data-backdrop="static">
 	  <div class="modal-dialog modal-lg" >
 	    <div class="modal-content" >
 
@@ -94,23 +94,21 @@
 
 	    <div class="modal-body">
 
-	    	
+	    	<form action="" id="cadDescricao" method="post">
 		    	
-	    	<div class="form-row align-items-center espacoForm">
-			    <label for="inputMim" class="col-sm-2 col-form-label"><b>Código:</b></label>	
-				<div class="col-sm-3">
-				     <input type="text" class="form-control" id="inputCodigoCategoria2" name="textCodigoCategori" readonly="true">
-				</div> 
-			</div>
-
-			<div class="form-row align-items-center espacoForm">
-				<label for="inputMax" class="col-sm-2 col-form-label"><b>Categoria:</b></label>
-				<div class="col-sm-6">
-				     <input type="text" class="form-control" id="inputEdicaoCategoria2" name="textCategoria" readonly="true">
+		    	<div class="form-row align-items-center espacoForm">
+				    <label for="inputMim" class="col-sm-2 col-form-label"><b>Código:</b></label>	
+					<div class="col-sm-3">
+					     <input type="text" class="form-control" id="inputCodigoCategoria2" name="textCodigoCategoria" readonly="true">
+					</div> 
 				</div>
-			</div>
 
-			<form action="" id="cadDescricao" method="post">
+				<div class="form-row align-items-center espacoForm">
+					<label for="inputMax" class="col-sm-2 col-form-label"><b>Categoria:</b></label>
+					<div class="col-sm-6">
+					     <input type="text" class="form-control" id="inputEdicaoCategoria2" name="textCategoria" readonly="true">
+					</div>
+				</div>
 
 				<div class="form-row align-items-center espacoForm">
 				    <label for="inputMim" class="col-sm-2 col-form-label">Nova Descrição:</label>	
@@ -157,7 +155,7 @@
 
 	<!-- MODAL editar Descricao --> 
 
-	<div class="modal" id="editarDescricaoModal">
+	<div class="modal fade" id="editarDescricaoModal" data-backdrop="static">
 	  <div class="modal-dialog" >
 	    <div class="modal-content" >
 
@@ -313,10 +311,6 @@
 				success: function(response) {
 
 
-						$('#cadDescricao').each (function(){
-  							this.reset();
-						});
-
 						$('#resultadoCadasstroDescricao').html(response);
 
 							
@@ -355,9 +349,6 @@
 			data: $(this).serialize(),
 			success: function(response) {
 				  	$('#resultadoEdicaoCategoria').html(response);
-				  	$('#editCategoria').each (function(){
-  						this.reset();
-					});
 
 					var result =  document.getElementById("resultadoListaCategoria");
 					var xmlreq = CriarRequest();
@@ -578,7 +569,12 @@
     	$('.modal').on('click', '.limpar-modal', function() {
 
     		$('.alert').remove();
-    		//$('#resultadoSelectAutor > *').remove();
+    		document.getElementById('inputNovaDescricao').value='';
+    		document.getElementById('inputValorReducao').value='';
+    		document.getElementById('inputNovaCategoria').value='';
+    		document.getElementById('inputValorReducao2').value='';
+    		document.getElementById('inputNovaDescricao2').value='';
+
 
     	});	
 

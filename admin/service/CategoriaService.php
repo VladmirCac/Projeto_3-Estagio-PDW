@@ -1,7 +1,7 @@
 <?php
 	
-	/* Aula de Referencia: https://www.devmedia.com.br/crud-com-php-mysql-e-ajax-usando-jquery/32197
-	
+	/* 
+
 	Aqui será o código referente aos serviços do Objeto autor*/
 
 
@@ -83,7 +83,8 @@
 
 	function cadastrarCategoria(){
 
-		
+		//ADICIONAR UMA CATEGORIA
+
 		$nomeCadastroParaIncluir = $_POST['cadastroCategoria'];
 
 
@@ -102,6 +103,8 @@
 	}
 
 	function alterarCategoria() {
+
+		// DEVEMOS ALTERAR A CATEGORIA
 
 		$codigoParaAlterar = $_POST['textCodigoCategoria'];
 		$nomeEdicaoCategoria = $_POST['textCategoria'];

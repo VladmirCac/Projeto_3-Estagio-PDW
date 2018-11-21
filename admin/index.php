@@ -38,7 +38,7 @@
             include_once("$pg.php");
         }
     
-        include_once("view/Rodape.php");
+        //include_once("view/Rodape.php");
 
       }
     ?> 

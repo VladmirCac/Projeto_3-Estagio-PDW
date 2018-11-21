@@ -4,17 +4,17 @@
 <h2 class="espacoForm">
 	<center>
 		<i class="fa fa-pencil"></i>
-		CADASTRO DE AUTOR
+		CADASTRO DE ASSUNTO
 	<center>
 </h2>
 	<div class="container1">
 		<form action="" method="post">	
 			<div class="form-row align-items-center espacoForm">
 		      	<div class="col-sm-6">
-		     		 <input type="text" class="form-control" id="inputBusca" name="buscaAutor" placeholder="">
+		     		 <input type="text" class="form-control" id="inputBusca" name="buscaAssunto" placeholder="">
 		    	</div>
 		  		<div class="col-auto my-1">
-			      	<button type="button" class="btn btn-primary" onclick="getListaAutor();">
+			      	<button type="button" class="btn btn-primary" onclick="getListaAssunto();">
 			      		<i class="fa fa-search-plus"></i>
 			      		Consultar
 			      	</button>
@@ -25,7 +25,7 @@
 			    </div>
 			</div>
 		</form>
-		<div id="resultadoListaAutor"></div>
+		<div id="resultadoListaAssunto"></div>
 	</div>
 
 <!-- Modal de Cadastro  -->
@@ -35,15 +35,15 @@
     <div class="modal-content">
 
       <div class="modal-header">
-        <h4 class="modal-title">Cadastrar Autor</h4>
+        <h4 class="modal-title">Cadastrar Assunto</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
       <div class="modal-body">
-        <form action="service/AutorService.php?passo=cadastrar" id="cadAutor" method="post">	
+        <form action="service/AssuntoService.php?passo=cadastrar" id="cadAssunto" method="post">	
 			<div class="form-row align-items-center espacoForm">
 		      	<div class="col-sm-9">
-		     		 <input type="text" class="form-control" id="inputCadastro" name="cadastroAutor" placeholder="">
+		     		 <input type="text" class="form-control" id="inputCadastro" name="cadastroAssunto" placeholder="">
 		    	</div>
 		  		<div class="col-auto my-1">
 			      	<button type="submit" class="btn btn-success" data-toggle="modal">
@@ -51,7 +51,7 @@
 						Salvar
 					</button>
 			    </div>
-			    <div id="resultadoCadastroAutor"></div>
+			    <div id="resultadoCadastroAssunto"></div>
 			</div>
 		</form>
       </div>
@@ -71,28 +71,28 @@
     <div class="modal-content">
 
       <div class="modal-header">
-        <h4 class="modal-title">Alterar Autor</h4>
+        <h4 class="modal-title">Alterar Assunto</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
       <div class="modal-body">
         
-        <form action="service/AutorService.php?passo=alterar" id="editAutor" method="post">
+        <form action="service/AssuntoService.php?passo=alterar" id="editAssunto" method="post">
 		    
 		    <label for="inputMim" class="col-sm-1 col-form-label">Código:</label>	
 			    <div class="col-sm-6">
 			     	<input type="text" class="form-control" id="inputCodigo" name="textCodigo" readonly="true">
 			    </div> 
 			
-			<label for="inputMax" class="col-sm-1 col-form-label">Autor:</label>
+			<label for="inputMax" class="col-sm-1 col-form-label">Assunto:</label>
 			    <div class="col-sm-10">
-			     	<input type="text" class="form-control" id="inputAutor" name="textAutor" readonly="true" style="margin-bottom: 3%;">
+			     	<input type="text" class="form-control" id="inputAssunto" name="textAssunto" readonly="true" style="margin-bottom: 3%;">
 			    </div>
 			
 			<label for="inputMax" class="col-sm-5 col-form-label">Novo Nome:</label>	
 			<div class="form-row align-items-center espacoForm">
 		      	<div class="col-sm-9">
-		     		 <input type="text" class="form-control" id="inputEdicao" name="edicaoAutor">
+		     		 <input type="text" class="form-control" id="inputEdicao" name="edicaoAssunto">
 		    	</div>
 		  		
 		  		<div class="col-auto my-1">
@@ -102,7 +102,7 @@
 					</button>
 			    </div>
 			    
-			    <div id="resultadoEdicaoAutor"></div>
+			    <div id="resultadoEdicaoAssunto"></div>
 			
 			</div>
 		
@@ -124,35 +124,35 @@
     <div class="modal-content">
 
       <div class="modal-header">
-        <h4 class="modal-title">Excluir Autor</h4>
+        <h4 class="modal-title">Excluir Assunto</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
       <div class="modal-body">
-        <form action="service/AutorService.php?passo=excluir" id="removAutor" method="post">
+        <form action="service/AssuntoService.php?passo=excluir" id="removAssunto" method="post">
 		    
-		    <label class="col-sm-1 col-form-label">Código:</label>	
+		    <label for="inputMim" class="col-sm-1 col-form-label">Código:</label>	
 			    <div class="col-sm-6">
 			     	<input type="text" class="form-control" id="inputRCodigo" name="textRCodigo" readonly="true">
 			    </div> 
 			
-			<label class="col-sm-5 col-form-label">Autor à ser excluido:</label>
+			<label for="inputMax" class="col-sm-5 col-form-label">Assunto à ser excluido:</label>
 			    <div class="col-sm-10">
-			     	<input type="text" class="form-control" id="inputRAutor" name="textRAutor" readonly="true" style="margin-bottom: 3%;">
+			     	<input type="text" class="form-control" id="inputRAssunto" name="textRAssunto" readonly="true" style="margin-bottom: 3%;">
 			    </div>
 			
-			<label class="col-sm-5 col-form-label">Autor à ser transferido:</label>	
+			<label for="inputMax" class="col-sm-6 col-form-label">Assunto à ser transferido:</label>	
 			<div class="form-row align-items-center espacoForm">
 		      	<div class="col-sm-9">
-		     		 <input type="text" class="form-control" id="inputRemocao" name="remocaoAutor">
+		     		 <input type="text" class="form-control" id="inputRemocao" name="remocaoAssunto">
 		    	</div>
 		  		<div class="col-auto my-1">
-			      	<button type="button" class="btn btn-primary" data-toggle="modal" onclick="getListaSelectAutor();">
+			      	<button type="button" class="btn btn-primary" data-toggle="modal" onclick="getListaSelectAssunto();">
 						<i class="fa fa-search"></i>
 						Buscar
 					</button>
 			    </div>
-			    <div class="col-sm-10 espacoForm" id="resultadoSelectAutor"></div>
+			    <div class="col-sm-10 espacoForm" id="resultadoSelectAssunto"></div>
 			</div>
 			
 			<div class="col-auto my-1">
@@ -162,7 +162,7 @@
 					</button>
 			 </div>
 
-			<div id="resultadoRemocaoAutor"></div>
+			<div id="resultadoRemocaoAssunto"></div>
 
 		</form>
       </div>
@@ -185,15 +185,15 @@
 /* Aqui estamos nos comunicando com o PHP sem precisar recarregar a pagina através do Ajax.*/
 
 
-	function getListaAutor() {
+	function getListaAssunto() {
 
-		var autor = document.getElementById("inputBusca").value;
-		var result =  document.getElementById("resultadoListaAutor");
+		var assunto = document.getElementById("inputBusca").value;
+		var result =  document.getElementById("resultadoListaAssunto");
 		var xmlreq = CriarRequest();
 
 		result.innerHTML ='<div class="loader"></div>';
 
-		xmlreq.open("GET", "service/AutorService.php?passo=listar&autor="+autor, true);
+		xmlreq.open("GET", "service/AssuntoService.php?passo=listar&assunto="+assunto, true);
 		
 		xmlreq.onreadystatechange = function() {
 			if (xmlreq.readyState == 4) {
@@ -208,15 +208,15 @@
 	};
 
 
-	function getListaSelectAutor() {
+	function getListaSelectAssunto() {
 
-		var autor = document.getElementById("inputRemocao").value;
-		var result =  document.getElementById("resultadoSelectAutor");
+		var assunto = document.getElementById("inputRemocao").value;
+		var result =  document.getElementById("resultadoSelectAssunto");
 		var xmlreq = CriarRequest();
 
 		result.innerHTML ='<div class="loader"></div>';
 
-		xmlreq.open("GET", "service/AutorService.php?passo=listarSelect&autor="+autor, true);
+		xmlreq.open("GET", "service/AssuntoService.php?passo=listarSelect&assunto="+assunto, true);
 		
 		xmlreq.onreadystatechange = function() {
 			if (xmlreq.readyState == 4) {
@@ -233,7 +233,7 @@
 
 	$(function() {
 
-    	$("#cadAutor").submit(function(e) {
+    	$("#cadAssunto").submit(function(e) {
     			
     		e.preventDefault();
     		$.ajax({
@@ -241,18 +241,12 @@
 			url: $(this).attr("action"),
 			data: $(this).serialize(),
 			success: function(response) {
-					//window.location.reload();
-				  	$('#resultadoCadastroAutor').html(response);
-				  	/*
-				  	$('#cadAutor').each (function(){
-  						this.reset();
-					});
-					*/
+				  	$('#resultadoCadastroAssunto').html(response);
 				}			 
 			});
     	});
 
-    	$("#editAutor").submit(function(e) {
+    	$("#editAssunto").submit(function(e) {
     			
     		e.preventDefault();
     		$.ajax({
@@ -260,17 +254,12 @@
 			url: $(this).attr("action"),
 			data: $(this).serialize(),
 			success: function(response) {
-				  	$('#resultadoEdicaoAutor').html(response);
-				  	/*
-				  	$('#editAutor').each (function(){
-  						this.reset();
-					});
-					*/
+				  	$('#resultadoEdicaoAssunto').html(response);
 				}			 
 			});
     	});
 
-    	$("#removAutor").submit(function(e) {
+    	$("#removAssunto").submit(function(e) {
     			
     		e.preventDefault();
     		$.ajax({
@@ -278,28 +267,18 @@
 			url: $(this).attr("action"),
 			data: $(this).serialize(),
 			success: function(response) {
-				  	$('#resultadoRemocaoAutor').html(response);
-				  	/*
-				  	$('#removAutor').each (function(){
-  						this.reset();
-					});
-					*/
+				  	$('#resultadoRemocaoAssunto').html(response);
+				
 				}			 
 			});
     	});
-
-    	// aqui estamos transferindo os dados para os modais de exclusão e alteração.
-
-
-
-
    	
-    	$('#resultadoListaAutor').on('click', '.lautor > td:nth-child(2) button', function(){
+    	$('#resultadoListaAssunto').on('click', '.lassunto > td:nth-child(2) button', function(){
 	        	
-				var nome = $(this).attr('nomeAutor');
-	        	var codigo = $(this).attr('codigoAutor');
+				var nome = $(this).attr('nomeAssunto');
+	        	var codigo = $(this).attr('codigoAssunto');
 
-	        	var inputNome = document.getElementById("inputAutor");
+	        	var inputNome = document.getElementById("inputAssunto");
 				var inputCodigo = document.getElementById("inputCodigo");
 
 				inputNome.value = nome;
@@ -307,12 +286,12 @@
 	    		
     		});
 
-    	$('#resultadoListaAutor').on('click', '.lautor > td:nth-child(1) button', function(){
+    	$('#resultadoListaAssunto').on('click', '.lassunto > td:nth-child(1) button', function(){
 	        	
-				var nome = $(this).attr('nomeAutor');
-	        	var codigo = $(this).attr('codigoAutor');
+				var nome = $(this).attr('nomeAssunto');
+	        	var codigo = $(this).attr('codigoAssunto');
 
-	        	var inputNome = document.getElementById("inputRAutor");
+	        	var inputNome = document.getElementById("inputRAssunto");
 				var inputCodigo = document.getElementById("inputRCodigo");
 
 				inputNome.value = nome;
@@ -323,7 +302,7 @@
     	$('.modal').on('click', '.limpar-modal', function() {
 
     		$('.alert').remove();
-    		$('#resultadoSelectAutor > *').remove();
+    		$('#resultadoSelectAssunto > *').remove();
     		document.getElementById('inputEdicao').value='';
     		document.getElementById('inputRemocao').value='';
     		document.getElementById('inputCadastro').value='';
@@ -331,10 +310,6 @@
     	});		
 
     });
-
-
-
-
 
 
 </script>

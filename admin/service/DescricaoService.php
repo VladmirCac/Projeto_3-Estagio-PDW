@@ -7,12 +7,15 @@
 		case 'cadastrar': {cadastrarDescricao(); break;}
 		case 'alterar': {alterarDescricao(); break;}
 		case 'alterarStatus': {alterarStatus(); break;}
+		case 'listarAtivas': {listarDescricaoAtivas(); break;}
 		default: case 'listar': {listarDescricao(); break;}
 			
 	}
 
 
 	function listarDescricao(){
+
+		// aqui devemos listar todos o
 
 		?>
 			<table class="table table-sm table-bordered table-striped">
@@ -73,9 +76,9 @@
 	function cadastrarDescricao(){
 
 		
+		// funcão responsável por cadastrar as descrições.
 
-
-
+		$codigoDaCategoriaRelacionada = $_POST['textCodigoCategoria'];
 		$nomeDescricaoParaIncluir = $_POST['textNovaDescricao'];
 		$valorReducaoParaIncluir = $_POST['textValorReducao'];
 
@@ -84,7 +87,7 @@
 		if (true){
 
 
-			echo "<div class='alert alert-success espacoForm'><strong> Cadastro da descricao ".$nomeDescricaoParaIncluir." ".$valorReducaoParaIncluir." realizada com sucesso!</strong></div>";
+			echo "<div class='alert alert-success espacoForm'><strong> Cadastro da descricao ".$nomeDescricaoParaIncluir." ".$valorReducaoParaIncluir."  ".$codigoDaCategoriaRelacionada." realizada com sucesso!</strong></div>";
 
 		} else {
 
@@ -96,7 +99,7 @@
 
 	function alterarDescricao(){
 
-
+		// funcção responsável por alterar as descrições
 		$codigoDescricaoParaAlterar = $_POST['textCodigoDescricao'];
 		$nomeDescricaoParaEditar = $_POST['textNovaDescricao2'];
 		$valorReducaoParaEditar = $_POST['textValorReducao2'];
@@ -119,6 +122,8 @@
 
 	function alterarStatus() {
 
+		// funcção responsável por trocar o satus da ddescrição. O status que tiver 1 devera ficar zero e que tiver 0 deverá ficar 1
+
 		$codigoParaAlterar = $_GET['codigo'];
 		$statusAutal = $_GET['status'];
 
@@ -132,6 +137,73 @@
 
 		}
 
+
+	}
+
+	function listarDescricaoAtivas(){
+
+
+		/*LISTAR TODAS A DESCRIÇÕES ATIVAS COM CHEKBOX SEPARANDO POR CATEGORIA.
+			DEVEMOS CRIAR UMA LINHA PARA CADA CATEGORIA SEGUIDASD DE SUAS DESCRIÇÕES RELACIONADAS CONFORME MODELO.	
+		 */
+
+
+		if (true){
+
+		?>
+
+			<table class="table table-bordered table-sm" style="font-size: 12px;">
+				<thead class="bg-light">
+			    	<tr>
+			      		<!-- NOME DA CATEGORI -->
+			      		<th><?php echo "...."; ?></th>
+			      		<th>-(R$)</th>	
+			    	</tr>
+			  	</thead>
+			  		<tr>
+			  			<td>
+			  				                  <!-- NO VALUE='' DEVE SER INCLIODO O CODIGO DA DESCRIAÇÃO -->
+			  				<input type='checkbox' name='descricao[]' value='....' style='margin-left: 2%;'/>
+			  				LIVRO EM BOM ESTADO DE CONSERVAÇÃO EM RELAÇÃO AO ANO DE PUBLICAÇÃO
+			  			</td>
+			  			<td>0</td>
+			  		</tr>
+				<thead class="bg-light">
+			    	<tr>
+			      		<th>CAPA</th>
+			      		<th>-(R$)</th>	
+			    	</tr>
+			  	</thead>
+			  		<tr>
+			  			<td>
+			  				<input type='checkbox' name='descricao[]' value='....' style='margin-left: 2%;'/>
+			  				CAPA COM LEVES DESGASTRES NA EXTREMIDADE
+			  			</td>
+			  			<td>0</td>
+			  		</tr>
+				<thead class="bg-light">
+			    	<tr>
+			      		<th>CONTRA CAPA</th>
+			      		<th>-(R$)</th>	
+			    	</tr>
+			  	</thead>
+			  		<tr>
+			  			<td>
+			  				<input type='checkbox' name='descricao[]' value='....' style='margin-left: 2%;'/>
+			  				CONTRA CAPA COM MARCA DA QNTIQUE ETIQUETA REMOVIDA
+			  			</td>
+			  			<td>0</td>
+			  		</tr>
+				
+			</table>  		
+			
+		<?php	
+
+		}else{
+
+			echo "<div class='alert alert-danger espacoForm'><strong>Edição não realizada!</strong> Ocorreu um erro.</div>";
+
+		}
 
 	}
 

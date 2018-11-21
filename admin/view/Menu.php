@@ -11,11 +11,11 @@
       </a>
       <div class="dropdown-menu">
         <a class="dropdown-item" href="?pg=view/CadastroAutor">Autor</a>
-        <a class="dropdown-item" href="">Editora</a>
-        <a class="dropdown-item" href="">Assunto</a>
+        <a class="dropdown-item" href="?pg=view/CadastroEditora">Editora</a>
+        <a class="dropdown-item" href="?pg=view/CadastroAssunto">Assunto</a>
         <a class="dropdown-item" href="?pg=view/CadastroDescricao">Descrição</a>
-        <a class="dropdown-item" href="">Livro</a>
-        <a class="dropdown-item" href="">Buscar Livros</a>
+        <a class="dropdown-item" href="?pg=view/CadastroLivro">Livro</a>
+        <a class="dropdown-item" href="?pg=view/BuscarLivros">Buscar Livros</a>
       </div>
     </li>
     </li>

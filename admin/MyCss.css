@@ -1,5 +1,38 @@
 
 
+.modal .modal-xl {
+  max-width: 80%;
+}
+
+.modal { overflow: auto !important; }
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spaco-select {
+
+    margin-left: 15%; 
+}
+
+
 @keyframes hide {
   
   from { opacity: 1 }
@@ -100,6 +133,10 @@
     .fonteResponsiva{
         font-size: 14px;
     }
+    .spaco-select {
+
+    margin-left: 3%; 
+}
      .logo {
   width: 7%;
   height: 7%;
@@ -113,6 +150,11 @@
     .fonteResponsiva{
         font-size: 10px;
     }
+
+    .spaco-select {
+
+    margin-left: 2%; 
+}
       .logo {
   width: 10%;
   height: 10%;
@@ -126,6 +168,11 @@
     .fonteResponsiva{
         font-size: 10px;
     }
+
+    .spaco-select {
+
+    margin-left: 1%; 
+}
       .logo {
   width: 12%;
   height: 12%;
