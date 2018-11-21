@@ -68,7 +68,7 @@
 			
 			<div class="modal-footer">
 				<button type="button" id="btdAddOutroLivro" class="btn btn-primary">Adicionar outro Livro</button>
-				<button type="button" id="btdAddLivroDescrito" codigoLivro=<?php echo $codigo; ?> <?php echo $preco; ?> class="btn btn-warning">Adicionar Livro Descrito</button>
+				<button type="button" id="btdAddLivroDescrito" codigoLivro=<?php echo "'".$codigo."'"; ?> precoLivro=<?php echo "'".$preco."'"; ?> class="btn btn-warning">Adicionar Livro Descrito</button>
 			</div>
 
 <?php  

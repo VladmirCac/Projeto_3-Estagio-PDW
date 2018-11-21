@@ -98,7 +98,7 @@
 		
 		if (true){
 
-			echo "Descrição alterada com sucesso!</br>Preço: ".;
+			echo "Descrição alterada com sucesso!</br>Preço: ";
 
 
 		}else{
