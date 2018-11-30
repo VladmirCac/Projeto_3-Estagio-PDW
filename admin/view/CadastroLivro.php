@@ -4,7 +4,7 @@
 		CADASTRO DE LIVROS
 	<center>
 </h2> 
-<div class="container1">
+<div class="container1" id="resultadoCrawler">
 	<form id="cadLivro" action="service/LivroService.php?passo=cadastrar" method="post">
 		<div class="form-row align-items-center espacoForm">
 		    <label for="inputIsbn" class="col-sm-2 col-form-label">ISBN:</label>
@@ -12,11 +12,12 @@
 	     		 <input type="text" class="form-control" id="inputIsbn" name="isbn">
 	    	</div>
 		    <div class="col-auto my-1">
-		      	<button type="button" class="btn btn-primary">
+		      	<button type="button" class="btn btn-primary" id="getDados">
 		      		<i class="fa fa-cloud-download"></i>
 		      		Buscar Informações
 		      	</button>
 		    </div>
+		    <div id="resultadoCrawler2"></div>
 		</div>
 		<div class="form-row align-items-center espacoForm">
 			<label for="inputTitulo" class="col-sm-2 col-form-label">Titulo:</label>
@@ -37,7 +38,7 @@
 		      	</button>
 		    </div>
 		    <div class="col-auto my-1">
-		      	<button type="button" class="btn btn-primary">
+		      	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cadastroAutorModal">
 		      		<i class="fa fa-plus"></i>
 		      		Cadastra
 		      	</button>
@@ -58,7 +59,7 @@
 		      	</button>
 		    </div>
 		    <div class="col-auto my-1">
-		      	<button type="button" class="btn btn-primary">
+		      	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cadastroEditoraModal">
 		      		<i class="fa fa-plus"></i>
 		      		Cadastra
 		      	</button>
@@ -79,7 +80,7 @@
 		      	</button>
 		    </div>
 		    <div class="col-auto my-1">
-		      	<button type="button" class="btn btn-primary">
+		      	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cadastroAssuntoModal">
 		      		<i class="fa fa-plus"></i>
 		      		Cadastra
 		      	</button>
@@ -176,7 +177,7 @@
 			<i class="fa fa-floppy-o"></i>
 			Salvar
 		</button>
-		<button type="button" class="btn btn-danger btn-lg espacoForm" onclick="zerarFormulario();">
+		<button type="button" class="btn btn-danger btn-lg espacoForm" id="zerarForm">
 			<i class="fa fa-ban"></i>
 			Limpar
 		</button>
@@ -349,6 +350,114 @@
 
 	</div>
 
+	<!-- Modal de Cadastro Aitor  -->
+
+	<div class="modal fade" id="cadastroAutorModal" data-backdrop="static">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<h4 class="modal-title">Cadastrar Autor</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<div class="modal-body">
+					<form action="service/AutorService.php?passo=cadastrar" id="cadAutor" method="post">	
+						<div class="form-row align-items-center espacoForm">
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="inputCadastroAutor" name="cadastroAutor" placeholder="">
+							</div>
+							<div class="col-auto my-1">
+								<button type="submit" class="btn btn-success" data-toggle="modal">
+									<i class="fa fa-floppy-o"></i>
+									Salvar
+								</button>
+							</div>
+							<div id="resultadoCadastroAutor"></div>
+						</div>
+					</form>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger limpar-modal" data-dismiss="modal">Fechar</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal de Cadastro Assunto  -->
+
+	<div class="modal fade" id="cadastroAssuntoModal" data-backdrop="static">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<h4 class="modal-title">Cadastrar Assunto</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<div class="modal-body">
+					<form action="service/AssuntoService.php?passo=cadastrar" id="cadAssunto" method="post">	
+						<div class="form-row align-items-center espacoForm">
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="inputCadastroAssunto" name="cadastroAssunto" placeholder="">
+							</div>
+							<div class="col-auto my-1">
+								<button type="submit" class="btn btn-success" data-toggle="modal">
+									<i class="fa fa-floppy-o"></i>
+									Salvar
+								</button>
+							</div>
+							<div id="resultadoCadastroAssunto"></div>
+						</div>
+					</form>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger limpar-modal" data-dismiss="modal">Fechar</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+<!-- Modal de Cadastro Editora  -->
+
+<div class="modal fade" id="cadastroEditoraModal" data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 class="modal-title">Cadastrar Editora</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <form action="service/EditoraService.php?passo=cadastrar" id="cadEditora" method="post">	
+			<div class="form-row align-items-center espacoForm">
+		      	<div class="col-sm-9">
+		     		 <input type="text" class="form-control" id="inputCadastroEditora" name="cadastroEditora" placeholder="">
+		    	</div>
+		  		<div class="col-auto my-1">
+			      	<button type="submit" class="btn btn-success" data-toggle="modal">
+						<i class="fa fa-floppy-o"></i>
+						Salvar
+					</button>
+			    </div>
+			    <div id="resultadoCadastroEditora"></div>
+			</div>
+		</form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger limpar-modal" data-dismiss="modal">Fechar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
 
 <script src="//plentz.github.io/jquery-maskmoney/javascripts/jquery.maskMoney.min.js"></script>
@@ -448,13 +557,89 @@ function somenteNumeros(num) {
 		xmlreq.send(null);	
 	};
 
-	function zerarFormulario(){
-		$('#cadLivro').each (function(){
-  						this.reset();
-					});
+
+	$('#inputIsbn').keypress(function(e) {
+    	if(e.which == 13) {
+    		getDadosLivro();
+		}
+	});
+
+	$('#resultadoCrawler').on('click', '#getDados', function(e){
+		getDadosLivro()
+	});
+
+	function getDadosLivro() {
+
+		var isbn = document.getElementById("inputIsbn").value;
+		var result =  document.getElementById("resultadoCrawler");
+		var result2 =  document.getElementById("resultadoCrawler2");
+
+		var xmlreq = CriarRequest();
+
+		result2.innerHTML ='<div class="loader"></div>';
+
+		xmlreq.open("GET", "service/CrawlerService.php?isbn="+isbn, true);
+		
+		xmlreq.onreadystatechange = function() {
+			if (xmlreq.readyState == 4) {
+				if (xmlreq.status == 200){
+					if (xmlreq.responseText == "Isbn não encontrado!"){
+						alert(xmlreq.responseText);
+						result2.innerHTML = "";
+						document.getElementById('inputIsbn').value='';	
+					}else{
+						result.innerHTML = xmlreq.responseText;
+						result2.innerHTML = "";
+						$('#resultadoCrawler').ready(function(){
+    						$('#inputPreco').maskMoney();
+    						$('#cadLivro').bind("keypress", function(e) {
+        						if ((e.keyCode == 10)||(e.keyCode == 13)) {
+            					e.preventDefault();
+        						}		
+
+    						});
+						});	
+					}
+				}else {
+					result.innerHTML = "Erro: " + xmlreq.statusText;
+				}
+			}
+		};	
+		xmlreq.send(null);	
+
+
 	}
 
-	$("#cadLivro").submit(function(e) {
+	
+	$('#resultadoCrawler').on('click', '#zerarForm', function(e){
+		document.getElementById('inputTitulo').value='';
+		document.getElementById('inputIsbn').value='';
+		document.getElementById('inputAutor').value='';
+		document.getElementById('inputEditora').value='';
+		document.getElementById('inputAssunto').value='';
+		document.getElementById('inputIdioma').value='';
+		document.getElementById('inputAno').value='';
+		document.getElementById('inputEdicao').value='';
+		document.getElementById('inputPreco').value='';
+		document.getElementById('inputPaginas').value='';
+		document.getElementById('inputPeso').value='';
+		document.getElementById('inputColecao').value='';
+		document.getElementById('inputTraducao').value='';
+		document.getElementById('inputIlustracao').value='';
+		document.getElementById('inputdimensao').value='';
+		document.getElementById('inputAcabamento').value='';
+		document.getElementById('inputSinopse').value='';
+		/*
+		$('#cadLivro').each (function(){
+  						this.reset();	
+				});
+	 	*/
+	});
+	//}
+	
+
+	$('#resultadoCrawler').on('submit', '#cadLivro', function(e){
+	//$("#cadLivro").submit(function(e) {
 
 		e.preventDefault();
 		$('#confirmacaoCadastroLivro').modal('show');
@@ -548,6 +733,7 @@ function somenteNumeros(num) {
 				}
 			}
 		};	
+
 		xmlreq2.send(null);
 
 
@@ -739,10 +925,79 @@ function somenteNumeros(num) {
 			}
 		};	
 		xmlreq3.send(null);
-
-
-
 	});
+
+	$('#resultadoCrawler').ready(function() {
+    	$('#cadLivro').bind("keypress", function(e) {
+        	if ((e.keyCode == 10)||(e.keyCode == 13)) {
+            	e.preventDefault();
+     			}
+     	});	
+	});
+
+	
+	$("#cadAssunto").submit(function(e) {
+
+		e.preventDefault();
+		$.ajax({
+			type: "POST",
+			url: $(this).attr("action"),
+			data: $(this).serialize(),
+			success: function(response) {
+				$('#resultadoSelectAssunto').html(response);
+				$("#cadastroAssuntoModal").modal("hide");
+			}			 
+		});
+	});
+
+	
+	$("#cadAutor").submit(function(e) {
+
+		e.preventDefault();
+		$.ajax({
+			type: "POST",
+			url: $(this).attr("action"),
+			data: $(this).serialize(),
+			success: function(response) {
+				$('#resultadoSelectAutor').html(response);
+				$("#cadastroAutorModal").modal("hide");
+			}			 
+		});
+	});
+
+	//$('#resultadoCrawler').on('submit', '#cadEditora', function(e){
+	$("#cadEditora").submit(function(e) {
+
+		e.preventDefault();
+		$.ajax({
+			type: "POST",
+			url: $(this).attr("action"),
+			data: $(this).serialize(),
+			success: function(response) {
+				$('#resultadoSelectEditora').html(response);
+				$("#cadastroEditoraModal").modal("hide");
+				
+			}			 
+		});
+	});
+
+	$('.modal').on('click', '.limpar-modal', function() {
+
+		$('.alert').remove();
+		document.getElementById('inputCadastroAutor').value='';
+		document.getElementById('inputCadastroEditora').value='';
+		document.getElementById('inputCadastroAssunto').value='';
+
+	});		
+
+
+	/*
+	$('#resultadoCrawler').on('click', '#zerarForm', function(e){
+    		$('#cadLivro').each(function(){
+  						this.reset();
+					});
+    });
+    */
 
 	/*
 	$('#confirmacaoCadastroLivroDescrito').on('hide.bs.modal', function () { 
