@@ -1,3 +1,15 @@
+<?php
+
+      session_start();
+
+      if (empty($_SESSION)){
+        $_SESSION['logou'] = 0;
+      
+      }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,13 +26,6 @@
 </head>
 <body>
     <?php
-
-      session_start();
-
-      if (empty($_SESSION)){
-        $_SESSION['logou'] = 0;
-      
-      }
 
       if ($_SESSION['logou'] == 0){
         

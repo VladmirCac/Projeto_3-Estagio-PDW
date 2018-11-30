@@ -268,28 +268,28 @@
 
 						$('#resultadoCadasstroCategoria').html(response);
 						
-
-						var result =  document.getElementById("resultadoListaCategoria");
-						var xmlreq = CriarRequest();
-
-						result.innerHTML ='<div class="loader"></div>';
-
-						xmlreq.open("GET", "service/CategoriaService.php?passo=listar", true);
-		
-						xmlreq.onreadystatechange = function() {
-							if (xmlreq.readyState == 4) {
-								if (xmlreq.status == 200){
-									result.innerHTML = xmlreq.responseText;
-								}else {
-									result.innerHTML = "Erro: " + xmlreq.statusText;
-								}
-							}
-						};	
-						xmlreq.send(null);
 						
 					}
 				});
     		}
+
+    		var result =  document.getElementById("resultadoListaCategoria");
+    		var xmlreq = CriarRequest();
+
+    		result.innerHTML ='<div class="loader"></div>';
+
+    		xmlreq.open("GET", "service/CategoriaService.php?passo=listar", true);
+
+    		xmlreq.onreadystatechange = function() {
+    			if (xmlreq.readyState == 4) {
+    				if (xmlreq.status == 200){
+    					result.innerHTML = xmlreq.responseText;
+    				}else {
+    					result.innerHTML = "Erro: " + xmlreq.statusText;
+    				}
+    			}
+    		};	
+    		xmlreq.send(null);
 
     	});	
 
@@ -299,6 +299,7 @@
    		
     		var descricao = document.getElementById("inputNovaDescricao").value;
     		var c = confirm("Deseja adicionar a descrição "+descricao+" ?");
+    		
 
     		if (c) {
     			
@@ -309,35 +310,30 @@
 				url: "service/DescricaoService.php?passo=cadastrar",
 				data: $(this).serialize(),
 				success: function(response) {
-
-
 						$('#resultadoCadasstroDescricao').html(response);
-
-							
-				        var codigo = document.getElementById('inputEdicaoCategoria2');
-
-
-						var result =  document.getElementById("resultadoListaDescricao");
-						var xmlreq = CriarRequest();
-
-						result.innerHTML ='<div class="loader"></div>';
-
-						xmlreq.open("GET", "service/DescricaoService.php?passo=listar&codigo="+codigo, true);
-					
-						xmlreq.onreadystatechange = function() {
-							if (xmlreq.readyState == 4) {
-								if (xmlreq.status == 200){
-									result.innerHTML = xmlreq.responseText;
-								}else {
-									result.innerHTML = "Erro: " + xmlreq.statusText;
-								}
-							}
-						};
-						xmlreq.send(null);	
 					}
 				});
     		}
+    		var codigo = document.getElementById('inputCodigoCategoria2').value;
 
+
+    		var result =  document.getElementById("resultadoListaDescricao");
+    		var xmlreq = CriarRequest();
+
+    		result.innerHTML ='<div class="loader"></div>';
+
+    		xmlreq.open("GET", "service/DescricaoService.php?passo=listar&codigo="+codigo, true);
+    		
+    		xmlreq.onreadystatechange = function() {
+    			if (xmlreq.readyState == 4) {
+    				if (xmlreq.status == 200){
+    					result.innerHTML = xmlreq.responseText;
+    				}else {
+    					result.innerHTML = "Erro: " + xmlreq.statusText;
+    				}
+    			}
+    		};
+    		xmlreq.send(null);	
     	});	
 		
     	$("#editCategoria").submit(function(e) {
@@ -349,26 +345,26 @@
 			data: $(this).serialize(),
 			success: function(response) {
 				  	$('#resultadoEdicaoCategoria').html(response);
-
-					var result =  document.getElementById("resultadoListaCategoria");
-					var xmlreq = CriarRequest();
-
-					result.innerHTML ='<div class="loader"></div>';
-
-					xmlreq.open("GET", "service/CategoriaService.php?passo=listar", true);
-					
-					xmlreq.onreadystatechange = function() {
-						if (xmlreq.readyState == 4) {
-							if (xmlreq.status == 200){
-								result.innerHTML = xmlreq.responseText;
-							}else {
-								result.innerHTML = "Erro: " + xmlreq.statusText;
-							}
-						}
-					};	
-					xmlreq.send(null);
 				}			 
 			});
+    		var result =  document.getElementById("resultadoListaCategoria");
+    		var xmlreq = CriarRequest();
+
+    		result.innerHTML ='<div class="loader"></div>';
+
+    		xmlreq.open("GET", "service/CategoriaService.php?passo=listar", true);
+
+    		xmlreq.onreadystatechange = function() {
+    			if (xmlreq.readyState == 4) {
+    				if (xmlreq.status == 200){
+    					result.innerHTML = xmlreq.responseText;
+    				}else {
+    					result.innerHTML = "Erro: " + xmlreq.statusText;
+    				}
+    			}
+    		};	
+    		$('#inputValorReducao').maskMoney();
+    		xmlreq.send(null);
     	});	
 
     	$("#editDescricao").submit(function(e) {
@@ -380,30 +376,28 @@
 			data: $(this).serialize(),
 			success: function(response) {
 				  	$('#resultadoEdicaoDescricao').html(response);
-
-				  	 var codigo = document.getElementById('inputEdicaoCategoria2');
-
-
-					var result =  document.getElementById("resultadoListaDescricao");
-					var xmlreq = CriarRequest();
-
-					result.innerHTML ='<div class="loader"></div>';
-
-					xmlreq.open("GET", "service/DescricaoService.php?passo=listar&codigo="+codigo, true);
-					
-					xmlreq.onreadystatechange = function() {
-						if (xmlreq.readyState == 4) {
-							if (xmlreq.status == 200){
-								result.innerHTML = xmlreq.responseText;
-							}else {
-								result.innerHTML = "Erro: " + xmlreq.statusText;
-							}
-						}
-					};
-					xmlreq.send(null);	
-				  
 				}			 
 			});
+
+    		var codigo = document.getElementById('inputCodigoCategoria2').value;
+
+    		var result =  document.getElementById("resultadoListaDescricao");
+    		var xmlreq = CriarRequest();
+
+    		result.innerHTML ='<div class="loader"></div>';
+
+    		xmlreq.open("GET", "service/DescricaoService.php?passo=listar&codigo="+codigo, true);
+
+    		xmlreq.onreadystatechange = function() {
+    			if (xmlreq.readyState == 4) {
+    				if (xmlreq.status == 200){
+    					result.innerHTML = xmlreq.responseText;
+    				}else {
+    					result.innerHTML = "Erro: " + xmlreq.statusText;
+    				}
+    			}
+    		};
+    		xmlreq.send(null);	
     	});
 
 
@@ -480,12 +474,17 @@
 
 				xmlreq.send(null);
 
+
 				var result2 =  document.getElementById("resultadoListaDescricao");
 				var xmlreq2 = CriarRequest();
 
 				var codigo = document.getElementById('inputCodigoCategoria2').value;
 			
 				result2.innerHTML ='<div class="loader"></div>';
+
+				//window.setInterval('funcao()', 5000);
+
+				sleep(2000);
 
 				xmlreq2.open("GET", "service/DescricaoService.php?passo=listar&codigo="+codigo, true);
 		
@@ -579,7 +578,14 @@
     	});	
 
 	
-
+    	function sleep(milliseconds) {
+  			var start = new Date().getTime();
+ 				 for (var i = 0; i < 1e7; i++) {
+    				if ((new Date().getTime() - start) > milliseconds){
+     			break;
+    			}
+ 			 }
+ 		}	 
 
 
 </script>

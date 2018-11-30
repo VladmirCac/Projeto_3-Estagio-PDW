@@ -32,20 +32,23 @@
   <span type="text" class="navbar-text text-info marginRight">Bem vindo, <?=$_SESSION['login']?></span>
   <ul class="navbar-nav ml-auto">
     <li class="nav-item">
-        <a href="?pg=view/Menu&sair=1"><button type="button" class="btn btn-outline-danger btn-sm ml-auto">Sair</button></a>
+        <button type="button" onclick="Sair();" class="btn btn-outline-danger btn-sm ml-auto">Sair</button>
   	</li>
   </ul>
-  <?php
-
-    // ENCERRANDO A SESSION!
-    if (isset($_GET['sair'])) {
-
-      $_SESSION['logou'] = 0;
-      session_destroy();
-      header('location:index.php');
-
-
-    }
-
-  ?>
 </nav>
+<script type="text/javascript" src="CriarRequest.js"></script>
+<script type="text/javascript">
+  
+  function Sair() {
+
+        $.ajax({
+          type: "POST",
+          url: 'service/LoginService.php?passo=sair',
+          success: function() {
+                window.location.reload();    
+          }      
+        });
+
+  }
+
+</script>

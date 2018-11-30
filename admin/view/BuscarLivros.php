@@ -532,6 +532,8 @@ $('#resultadoCadastroLivro').on('click', '#btdAddOutroLivro', function(e){
 			}			 
 		});
 
+		sleep(500);
+
     	var codigo = document.getElementById('codigoLivro').value;
     	var xmlreq3 = CriarRequest();
 
@@ -690,8 +692,16 @@ $('#resultadoCadastroLivro').on('click', '#btdAddOutroLivro', function(e){
 		xmlreq3.send(null);
 
 
-
 	});
+
+	function sleep(milliseconds) {
+  			var start = new Date().getTime();
+ 				 for (var i = 0; i < 1e7; i++) {
+    				if ((new Date().getTime() - start) > milliseconds){
+     			break;
+    			}
+ 			 }
+ 		}	
 
 
 </script>
